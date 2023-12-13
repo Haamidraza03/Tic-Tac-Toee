@@ -70,6 +70,18 @@ function App() {
     setPlayer("0")
   }
 
+    useEffect(() => {
+      const handleRightClick = (e) => {
+        e.preventDefault();
+      }
+  
+      document.addEventListener('contextmenu', handleRightClick);
+      
+      return () => {
+        document.removeEventListener('contextmenu', handleRightClick);
+      }
+    }, []);
+
   return (
     <div className="App">
       <h1 style={{marginBottom:-100}} className='mt-5'>Play Tic-Tac-Toe Game</h1>
